@@ -27,7 +27,7 @@ Add this repo as the origin and push the `upstream-master` branch:
 ```
 git remote add origin https://github.com/banga/python-ast.git
 git fetch origin
-git push -u origin upstream-skin
+git push -u origin upstream-lib2to3
 ```
 Create the `master` branch to start contributing changes:
 ```
@@ -36,4 +36,20 @@ echo "..." > README
 git add README
 git commit -m "Add README"
 git push -u origin master
+```
+
+## How to pull in changes to lib2to3 from cpython
+Pull in updates from cpython's master branch:
+```
+git checkout upstream-master
+git pull
+```
+Update the `upstream-lib2to3` branch with any new commits in the `Lib/lib2to3/` directory:
+```
+git subtree split --prefix=Lib/lib2to3/ --onto upstream-lib2to3 -b upstream-lib2to3
+```
+Update the master branch with either merging or rebasing:
+```
+git checkout master
+git rebase upstream-lib2to3
 ```

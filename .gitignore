@@ -1,0 +1,7 @@
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cached grammars
+*.pickle
